@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const boom = require('express-boom');
 const logger = require('morgan');
 const config = require('../package.json');
+const userRoute = require('./routes/users');
 
 const app = express();
 
@@ -24,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(boom());
 
 app.get('/version', (req, res) => res.send({ name: config.name, version: config.version }));
-
+app.use('/users', userRoute);
 app.use((req, res) => {
   res.boom.notFound();
 });

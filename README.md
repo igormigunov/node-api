@@ -1,9 +1,9 @@
 Nodejs Express Joi api sample with Swagger
 =======================================
 
-Lesson 1.
---------
-During this lesson explained api structure and implemented `/version` endpoint which get api name and version
-from package.json and return it as json.
+Lesson 2.
+---------
+During this lesson created user model and CRUD endpoints for it.
 
 Clear structure [here](https://github.com/igormigunov/node-api/tree/clear)
+Lesson 1 [here](https://github.com/igormigunov/node-api/tree/l1)
