@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const boom = require('express-boom');
 const logger = require('morgan');
+const config = require('../package.json');
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(bodyParser.json({ verify: (req, res, buf) => { req.rawBody = buf; } }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(boom());
 
+app.get('/version', (req, res) => res.send({ name: config.name, version: config.version }));
 
 app.use((req, res) => {
   res.boom.notFound();
