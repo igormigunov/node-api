@@ -35,7 +35,7 @@
     "bcrypt-nodejs": "^0.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.15.2",
-    "celebrate": "^4.0.1",
+    "celebrate": "^7.0.4",
     "compression": "^1.6.2",
     "dotenv": "^4.0.0",
     "errorhandler": "^1.4.3",
