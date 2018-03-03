@@ -45,6 +45,7 @@
     "joi": "^10.6.0",
     "joi-objectid": "^2.0.0",
     "joigoose": "^2.0.0",
+    "jsonwebtoken": "^8.2.0",
     "mongoose": "^4.6.6",
     "mongoose-delete": "^0.4.0",
     "mongoose-timestamp": "^0.6.0",

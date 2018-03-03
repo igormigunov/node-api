@@ -7,6 +7,7 @@ const logger = require('morgan');
 const { errors } = require('celebrate');
 const config = require('../package.json');
 const userRoute = require('./routes/users');
+const jwt = require('express-jwt');
 
 
 const app = express();
@@ -26,8 +27,13 @@ app.use(bodyParser.json({ verify: (req, res, buf) => { req.rawBody = buf; } }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(boom());
 
-app.get('/version', (req, res) => res.send({ name: config.name, version: config.version }));
 app.use('/users', userRoute);
+app.use(jwt({
+  secret: process.env.JWT_SECRET,
+  getToken: req => req.headers && req.headers['x-access-token'],
+  resultProperty: 'decodedUser',
+}));
+app.get('/version', (req, res) => res.send({ name: config.name, version: config.version }));
 app.use(errors());
 app.use((req, res) => {
   res.boom.notFound();

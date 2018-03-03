@@ -23,7 +23,9 @@ const passHook = function (next) {
       next();
     });
 };
-
+userSchema.methods.comparePassword = function (password) {
+  return bcrypt.compare(password, this.password);
+};
 userSchema.pre('save', passHook);
 // userSchema.pre('update', passHook);
 
