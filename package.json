@@ -35,7 +35,7 @@
     "bcrypt-nodejs": "^0.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.15.2",
-    "celebrate": "^4.0.1",
+    "celebrate": "^7.0.4",
     "compression": "^1.6.2",
     "dotenv": "^4.0.0",
     "errorhandler": "^1.4.3",
@@ -56,7 +56,7 @@
     "eslint-config-airbnb-base": "^11.1.3",
     "eslint-plugin-chai-friendly": "^0.2.0",
     "eslint-plugin-import": "^2.1.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.17.1"
   },
   "engines": {
     "node": ">=7.6.0",

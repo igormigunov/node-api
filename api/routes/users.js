@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const { celebrate } = require('celebrate');
+const validators = require('../validators/users');
 const UserModel = require('../models/users');
 
 const getUserMiddleware = (req, res, next) =>
@@ -10,7 +12,7 @@ const getUserMiddleware = (req, res, next) =>
 
 router
   .route('/')
-  .get(async (req, res) => {
+  .get(celebrate(validators.getlist), async (req, res) => {
     try {
       const result = await UserModel.find(req.query);
       return res.send(result);
@@ -18,7 +20,7 @@ router
       res.boom.badRequest(err);
     }
   })
-  .post(async (req, res) => {
+  .post(celebrate(validators.post), async (req, res) => {
     try {
       const result = await UserModel.create(req.body);
       res.status(201).send(result);
@@ -29,14 +31,14 @@ router
 
 router
   .route('/:userId')
-  .get(getUserMiddleware, async (req, res) => {
+  .get(celebrate(validators.processOne), getUserMiddleware, async (req, res) => {
     try {
       res.send(req.user);
     } catch (err) {
       res.boom.badRequest(err);
     }
   })
-  .patch(getUserMiddleware, async (req, res) => {
+  .patch(celebrate(validators.patchOne), getUserMiddleware, async (req, res) => {
     try {
       Object.assign(req.user, req.body);
       await req.user.save();
@@ -45,7 +47,7 @@ router
       res.boom.badRequest(err);
     }
   })
-  .delete(getUserMiddleware, async (req, res) => {
+  .delete(celebrate(validators.processOne), getUserMiddleware, async (req, res) => {
     try {
       const result = await UserModel.delete({ _id: req.params.userId });
       res.send(result);

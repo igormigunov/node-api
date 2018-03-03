@@ -4,8 +4,10 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const boom = require('express-boom');
 const logger = require('morgan');
+const { errors } = require('celebrate');
 const config = require('../package.json');
 const userRoute = require('./routes/users');
+
 
 const app = express();
 
@@ -26,6 +28,7 @@ app.use(boom());
 
 app.get('/version', (req, res) => res.send({ name: config.name, version: config.version }));
 app.use('/users', userRoute);
+app.use(errors());
 app.use((req, res) => {
   res.boom.notFound();
 });
