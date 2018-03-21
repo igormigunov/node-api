@@ -1,7 +1,7 @@
 const Mongoose = require('mongoose');
 const mongooseDelete = require('mongoose-delete');
 const timestamp = require('mongoose-timestamp');
-const bcrypt = require('bcrypt-as-promised');
+const bcrypt = require('bcrypt-nodejs-as-promised');
 
 const userSchema = new Mongoose.Schema({
   username: { type: String, required: true, index: { unique: true } },
