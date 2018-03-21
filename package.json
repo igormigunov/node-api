@@ -31,8 +31,8 @@
     "yaml2json": "yaml2json api/swagger/swagger.yaml > api/swagger/swagger.json"
   },
   "dependencies": {
-    "bcrypt-as-promised": "^1.1.0",
-    "bcrypt-nodejs": "^0.0.3",
+    "bcrypt-nodejs": "0.0.3",
+    "bcrypt-nodejs-as-promised": "^1.0.4",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.15.2",
     "celebrate": "^7.0.4",
