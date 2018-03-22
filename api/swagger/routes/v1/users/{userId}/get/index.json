@@ -1,0 +1,9 @@
+{
+  "tags": [
+    "users"
+  ],
+  "summary": "GET - /v1/users/{userId}/",
+  "produces": [
+    "application/json"
+  ]
+}

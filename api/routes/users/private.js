@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const { celebrate } = require('celebrate');
-const jwt = require('jsonwebtoken');
-const validators = require('../validators/users');
-const UserModel = require('../models/users');
+const validators = require('../../validators/users');
+const UserModel = require('../../models/users');
 
 const getUserMiddleware = (req, res, next) =>
   UserModel.findOne({ _id: req.params.userId }).then((user) => {
@@ -20,30 +19,7 @@ router
     } catch (err) {
       res.boom.badRequest(err);
     }
-  })
-  .post(celebrate(validators.post), async (req, res) => {
-    try {
-      const result = await UserModel.create(req.body);
-      res.status(201).send(result);
-    } catch (err) {
-      res.boom.badRequest(err);
-    }
   });
-router
-  .route('/auth')
-  .post(celebrate(validators.postAuth), async (req, res) => {
-    try {
-      const { username, password } = req.body;
-      const user = await UserModel.findOne({ username });
-      if (!user) res.boom.notFound();
-      await user.comparePassword(password);
-      const token = jwt.sign(user.toObject(), process.env.JWT_SECRET);
-      res.send({ token });
-    } catch (err) {
-      res.boom.badRequest(err);
-    }
-
-  })
 router
   .route('/:userId')
   .get(celebrate(validators.processOne), getUserMiddleware, async (req, res) => {

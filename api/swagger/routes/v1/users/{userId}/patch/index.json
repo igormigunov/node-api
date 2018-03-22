@@ -1,0 +1,9 @@
+{
+  "tags": [
+    "users"
+  ],
+  "summary": "PATCH - /v1/users/{userId}/",
+  "produces": [
+    "application/json"
+  ]
+}

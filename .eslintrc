@@ -6,7 +6,7 @@
   ],
   "rules": {
     "no-underscore-dangle": "warn",
-    "consistent-return": "warn",
+    "consistent-return": 0,
     "no-console": "off",
     "import/no-unresolved": 0
   },

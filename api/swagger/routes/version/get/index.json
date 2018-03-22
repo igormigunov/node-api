@@ -1,0 +1,9 @@
+{
+  "tags": [
+    "default"
+  ],
+  "summary": "GET - /version",
+  "produces": [
+    "application/json"
+  ]
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "name": "body",
+    "in": "body",
+    "schema": {
+      "properties": {
+        "username": {
+          "type": "string",
+          "description": ""
+        },
+        "firstname": {
+          "type": "string",
+          "description": ""
+        },
+        "lastname": {
+          "type": "string",
+          "description": ""
+        },
+        "email": {
+          "type": "string",
+          "description": ""
+        },
+        "phone": {
+          "type": "string",
+          "description": ""
+        },
+        "password": {
+          "type": "string",
+          "description": ""
+        }
+      }
+    }
+  }
+]

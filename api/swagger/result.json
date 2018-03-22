@@ -1,0 +1,31 @@
+{
+  "all": 7,
+  "empty": {
+    "count": 1,
+    "list": [
+      "get /version"
+    ]
+  },
+  "completed": {
+    "count": 0,
+    "list": []
+  },
+  "withoutParams": {
+    "count": 1,
+    "list": [
+      "get /version"
+    ]
+  },
+  "withoutResponse": {
+    "count": 7,
+    "list": [
+      "get /v1/users",
+      "post /v1/users",
+      "post /v1/users/auth",
+      "get /v1/users/{userId}/",
+      "patch /v1/users/{userId}/",
+      "delete /v1/users/{userId}/",
+      "get /version"
+    ]
+  }
+}

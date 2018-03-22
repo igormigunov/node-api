@@ -1,0 +1,9 @@
+{
+  "tags": [
+    "users"
+  ],
+  "summary": "POST - /v1/users",
+  "produces": [
+    "application/json"
+  ]
+}

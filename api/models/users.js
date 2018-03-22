@@ -1,7 +1,7 @@
 const Mongoose = require('mongoose');
 const mongooseDelete = require('mongoose-delete');
 const timestamp = require('mongoose-timestamp');
-const bcrypt = require('bcrypt-as-promised');
+const bcrypt = require('bcrypt-promise');
 
 const userSchema = new Mongoose.Schema({
   username: { type: String, required: true, index: { unique: true } },
@@ -12,24 +12,24 @@ const userSchema = new Mongoose.Schema({
   password: { type: String, required: true },
 });
 
-const passHook = function (next) {
+function passHook(next) {
   const user = this;
   if (!user.isModified('password')) {
     return next();
   }
-  bcrypt.genSalt(10).then((err, salt) => bcrypt.hash(user.password, salt))
+  bcrypt.genSalt(10).then(salt => bcrypt.hash(user.password, salt))
     .then((hash) => {
       user.password = hash;
       next();
     });
-};
-userSchema.methods.comparePassword = function (password) {
+}
+function comparePassword(password) {
   return bcrypt.compare(password, this.password);
-};
+}
+userSchema.methods.comparePassword = comparePassword;
 userSchema.pre('save', passHook);
-// userSchema.pre('update', passHook);
 
-userSchema.plugin(mongooseDelete,  { overrideMethods: true, validateBeforeDelete: true });
+userSchema.plugin(mongooseDelete, { overrideMethods: true, validateBeforeDelete: true });
 userSchema.plugin(timestamp);
 
 module.exports = Mongoose.model('User', userSchema);

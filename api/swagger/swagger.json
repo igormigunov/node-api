@@ -1,0 +1,349 @@
+{
+  "swagger":"2.0",
+  "info":{
+    "version":"",
+    "title":""
+  },
+  "basePath":"/",
+  "schemes":[
+    "https",
+    "http"
+  ],
+  "consumes":[
+    "application/json"
+  ],
+  "produces":[
+    "application/json"
+  ],
+  "definitions": {
+    "user": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "firstname": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "paths":{
+    "/v1/users":{
+      "get":{
+        "tags":[
+          "users"
+        ],
+        "summary":"GET - /v1/users",
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/user"
+            },
+            "description": "array of users"
+          }
+          }
+        },
+        "parameters":[
+          {
+            "name":"username",
+            "in":"query",
+            "description":"",
+            "type":"string",
+            "required":false
+          },
+          {
+            "name":"firstname",
+            "in":"query",
+            "description":"",
+            "type":"string",
+            "required":false
+          },
+          {
+            "name":"lastname",
+            "in":"query",
+            "description":"",
+            "type":"string",
+            "required":false
+          },
+          {
+            "name":"email",
+            "in":"query",
+            "description":"",
+            "type":"string",
+            "required":false
+          },
+          {
+            "name":"phone",
+            "in":"query",
+            "description":"",
+            "type":"string",
+            "required":false
+          },
+          {
+            "name":"password",
+            "in":"query",
+            "description":"",
+            "type":"string",
+            "required":false
+          }
+        ]
+      },
+      "post":{
+        "tags":[
+          "users"
+        ],
+        "summary":"POST - /v1/users",
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "201":{
+            "schema": {
+              "$ref": "#/definitions/user"
+            },
+            "description": "created user"
+          }
+        },
+        "parameters":[
+          {
+            "name":"body",
+            "in":"body",
+            "schema":{
+              "properties":{
+                "username":{
+                  "type":"string",
+                  "description":""
+                },
+                "firstname":{
+                  "type":"string",
+                  "description":""
+                },
+                "lastname":{
+                  "type":"string",
+                  "description":""
+                },
+                "email":{
+                  "type":"string",
+                  "description":""
+                },
+                "phone":{
+                  "type":"string",
+                  "description":""
+                },
+                "password":{
+                  "type":"string",
+                  "description":""
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/v1/users/auth":{
+      "post":{
+        "tags":[
+          "users"
+        ],
+        "summary":"POST - /v1/users/auth",
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "user"
+          }
+        },
+        "parameters":[
+          {
+            "name":"body",
+            "in":"body",
+            "schema":{
+              "properties":{
+                "username":{
+                  "type":"string",
+                  "description":""
+                },
+                "password":{
+                  "type":"string",
+                  "description":""
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/v1/users/{userId}/":{
+      "get":{
+        "tags":[
+          "users"
+        ],
+        "summary":"GET - /v1/users/{userId}/",
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "schema": {
+              "$ref": "#/definitions/user"
+            },
+            "description": "user"
+          }
+        },
+        "parameters":[
+          {
+            "name":"userId",
+            "in":"path",
+            "description":"/^[0-9a-fA-F]{24}$/",
+            "type":"string",
+            "required":true
+          }
+        ]
+      },
+      "patch":{
+        "tags":[
+          "users"
+        ],
+        "summary":"PATCH - /v1/users/{userId}/",
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "schema": {
+              "$ref": "#/definitions/user"
+            },
+            "description": "user"
+          }
+        },
+        "parameters":[
+          {
+            "name":"userId",
+            "in":"path",
+            "description":"/^[0-9a-fA-F]{24}$/",
+            "type":"string",
+            "required":true
+          },
+          {
+            "name":"body",
+            "in":"body",
+            "schema":{
+              "properties":{
+                "username":{
+                  "type":"string",
+                  "description":""
+                },
+                "firstname":{
+                  "type":"string",
+                  "description":""
+                },
+                "lastname":{
+                  "type":"string",
+                  "description":""
+                },
+                "email":{
+                  "type":"string",
+                  "description":""
+                },
+                "phone":{
+                  "type":"string",
+                  "description":""
+                },
+                "password":{
+                  "type":"string",
+                  "description":""
+                }
+              }
+            }
+          }
+        ]
+      },
+      "delete":{
+        "tags":[
+          "users"
+        ],
+        "summary":"DELETE - /v1/users/{userId}/",
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "schema": {
+              "type": "object",
+              "properties": {
+                "n": {
+                  "type": "number"
+                },
+                "nModified": {
+                  "type": "number"
+                },
+                "ok": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        "parameters":[
+          {
+            "name":"userId",
+            "in":"path",
+            "description":"/^[0-9a-fA-F]{24}$/",
+            "type":"string",
+            "required":true
+          }
+        ]
+      }
+    },
+    "/version":{
+      "get":{
+        "tags":[
+          "default"
+        ],
+        "summary":"GET - /version",
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

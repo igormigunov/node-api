@@ -1,0 +1,44 @@
+[
+  {
+    "name": "username",
+    "in": "query",
+    "description": "",
+    "type": "string",
+    "required": false
+  },
+  {
+    "name": "firstname",
+    "in": "query",
+    "description": "",
+    "type": "string",
+    "required": false
+  },
+  {
+    "name": "lastname",
+    "in": "query",
+    "description": "",
+    "type": "string",
+    "required": false
+  },
+  {
+    "name": "email",
+    "in": "query",
+    "description": "",
+    "type": "string",
+    "required": false
+  },
+  {
+    "name": "phone",
+    "in": "query",
+    "description": "",
+    "type": "string",
+    "required": false
+  },
+  {
+    "name": "password",
+    "in": "query",
+    "description": "",
+    "type": "string",
+    "required": false
+  }
+]

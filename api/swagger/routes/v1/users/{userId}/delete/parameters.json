@@ -1,0 +1,9 @@
+[
+  {
+    "name": "userId",
+    "in": "path",
+    "description": "/^[0-9a-fA-F]{24}$/",
+    "type": "string",
+    "required": true
+  }
+]
